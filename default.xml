@@ -1,58 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
-    <remote
-        name="ubccr"
-        alias="upstream"
-        fetch="ssh://git@github.com/ubccr"
-    />
-    <default
-        remote="ubccr"
-        revision="xdmod8.0"
-    />
+  <remote name="upstream" fetch="https://github.com/ubccr"/>
+  <remote name="jtpalmer" fetch="https://github.com/jtpalmer"/>
 
-    <!--
-    Open XDMoD
+  <default remote="jtpalmer" revision="storage-refactoring" />
 
-    This is the main Open XDMoD repository. It will be installed by default.
-    -->
-    <project
-        name="xdmod"
-        groups="xdmod"
-    />
-
-    <!--
-    Open XDMoD Modules
-
-    These are Open XDMoD modules developed by the Open XDMoD team.
-    They will be installed by default.
-    -->
-    <project
-        name="xdmod-appkernels"
-        groups="appkernels"
-    >
-        <linkfile src="." dest="xdmod/open_xdmod/modules/appkernels" />
-    </project>
-    <project
-        name="xdmod-supremm"
-        groups="supremm"
-    >
-        <linkfile src="." dest="xdmod/open_xdmod/modules/supremm" />
-    </project>
-
-    <!--
-    Related Tools
-
-    These projects are tools used by Open XDMoD but are not part of it.
-    They are included for convenience, but they are not installed by default.
-    -->
-    <project
-        name="supremm"
-        groups="notdefault,supremm,tools"
-        revision="master"
-    />
-    <project
-        name="akrr"
-        groups="notdefault,appkernels,tools"
-        revision="master"
-    />
+  <project name="xdmod"/>
+  <project name="xdmod-appkernels" remote="upstream" revision="xdmod8.0">
+    <linkfile src="." dest="xdmod/open_xdmod/modules/appkernels" />
+  </project>
+  <project name="xdmod-supremm" remote="upstream" revision="xdmod8.0">
+    <linkfile src="." dest="xdmod/open_xdmod/modules/supremm" />
+  </project>
 </manifest>
